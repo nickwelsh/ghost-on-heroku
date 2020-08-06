@@ -20,6 +20,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "postinstall": "bash bin/copy-themes.sh && bash bin/install-b2.sh"
+    "postinstall": "bash bin/copy-themes.sh"
   }
 }
