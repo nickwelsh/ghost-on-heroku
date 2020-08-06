@@ -16,29 +16,29 @@
       "description": "The HTTPS URL of this app: either your custom domain or default 'herokuapp.com' hostname.",
       "value": "https://YOURAPPNAME.herokuapp.com"
     },
-    "B2_APPLICATION_KEY_ID": {
-      "description": "The identifier of your secret key.",
+    "S3_ACCESS_KEY_ID": {
+      "description": "Set your AWS Access Key ID to enable S3 file storage.",
       "required": true
     },
-    "B2_APPLICATION_KEY": {
-      "description": "The secret key for authorizing communication with Backblaze B2.",
+    "S3_ACCESS_SECRET_KEY": {
+      "description": "AWS Access Secret Key.",
       "required": true
     },
-    "B2_BUCKET_ID": {
-      "description": "The id of the bucket in Backblaze B2. Needed for communication with B2",
+    "S3_BUCKET_NAME": {
+      "description": "Name of your S3 bucket.",
       "required": true
     },
-    "B2_BUCKET_NAME": {
-      "description": "The friendly-name of your bucket in Backblaze B2. Used to build up the public-facing URL we return from the storage adapter.",
+    "S3_BUCKET_REGION": {
+      "description": "Region of your S3 bucket.",
       "required": true
     },
-    "B2_HOST": {
-      "description": "This should point at either your public Backblaze bucket (fXXX.backblazeb2.com) or your CNAME'd Cloudflare-proxying hostname that points to your public Backblaze bucket.",
-      "required": true
-    },
-    "B2_PATH_PREFIX": {
-      "description": "This is an optional prefix to prepend to the path that images are saved in. Images by default are saved at the root of your bucket, you can use this to further nest your save path.",
+    "S3_ASSET_HOST_URL": {
+      "description": "Optional custom CDN asset host url.",
       "required": false
+    },
+    "S3_ENDPOINT_URL": {
+      "description": "Optional custom endpoint url (only needed for 3rd party S3 providers).",
+      "required": true
     }
   }
 }

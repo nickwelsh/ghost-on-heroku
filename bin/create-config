@@ -11,15 +11,20 @@ var appRoot = path.join(__dirname, '..');
 function createConfig() {
   var fileStorage, storage;
   fileStorage = true
+  
   storage = {
+    active: s3,
+    s3: {
+      accessKeyId:     process.env.S3_ACCESS_KEY_ID,
+      secretAccessKey: process.env.S3_ACCESS_SECRET_KEY,
+      bucket:          process.env.S3_BUCKET_NAME,
+      region:          process.env.S3_BUCKET_REGION,
+      assetHost:       process.env.S3_ASSET_HOST_URL,
+      endpoint:        process.env.S3_ENDPOINT_URL
+    },
     active: 'b2',
     'b2': {
-      applicationKeyId: process.env.B2_APPLICATION_KEY_ID,
-      applicationKey: process.env.B2_APPLICATION_KEY,
-      bucketId: process.env.B2_BUCKET_ID,
-      bucketName: process.env.B2_BUCKET_NAME,
       host: process.env.B2_HOST,
-      pathPrefix: process.env.B2_PATH_PREFIX 
     }
   }
   
