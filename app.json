@@ -38,7 +38,7 @@
     },
     "S3_ENDPOINT_URL": {
       "description": "Optional custom endpoint url (only needed for 3rd party S3 providers).",
-      "required": true
+      "required": false
     }
   }
 }
