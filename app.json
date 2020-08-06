@@ -32,6 +32,10 @@
       "description": "The friendly-name of your bucket in Backblaze B2. Used to build up the public-facing URL we return from the storage adapter.",
       "required": true
     },
+    "B2_HOST": {
+      "description": "This should point at either your public Backblaze bucket (fXXX.backblazeb2.com) or your CNAME'd Cloudflare-proxying hostname that points to your public Backblaze bucket.",
+      "required": true
+    },
     "B2_PATH_PREFIX": {
       "description": "This is an optional prefix to prepend to the path that images are saved in. Images by default are saved at the root of your bucket, you can use this to further nest your save path.",
       "required": false
