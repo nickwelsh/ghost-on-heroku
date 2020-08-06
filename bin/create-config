@@ -12,14 +12,14 @@ function createConfig() {
   var fileStorage, storage;
   fileStorage = true
   storage = {
-    active: 'b2',
-    'b2': {
-      applicationKeyId: process.env.B2_APPLICATION_KEY_ID,
-      applicationKey: process.env.B2_APPLICATION_KEY,
-      bucketId: process.env.B2_BUCKET_ID,
-      bucketName: process.env.B2_BUCKET_NAME,
-      host: process.env.B2_HOST,
-      pathPrefix: process.env.B2_PATH_PREFIX 
+    active: 'b2-ghost-storage',
+    'b2-ghost-storage': {
+      "accountId": process.env.B2_APPLICATION_KEY_ID,
+      "applicationKey": process.env.B2_APPLICATION_KEY,
+      "bucketId": process.env.B2_BUCKET_ID,
+      "bucketName": process.env.B2_BUCKET_NAME,
+      "subFolder": process.env.B2_PATH_PREFIX,
+      "useDatedFolder": true
     }
   }
   
