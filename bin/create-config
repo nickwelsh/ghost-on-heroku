@@ -10,62 +10,19 @@ var appRoot = path.join(__dirname, '..');
 
 function createConfig() {
   var fileStorage, storage;
-
-  if (!!process.env.S3_ACCESS_KEY_ID) {
-    fileStorage = true
-    storage = {
-      active: 's3',
-      's3': {
-        accessKeyId:     process.env.S3_ACCESS_KEY_ID,
-        secretAccessKey: process.env.S3_ACCESS_SECRET_KEY,
-        bucket:          process.env.S3_BUCKET_NAME,
-        region:          process.env.S3_BUCKET_REGION,
-        assetHost:       process.env.S3_ASSET_HOST_URL
-      }
+  fileStorage = true
+  storage = {
+    active: 'b2',
+    'b2': {
+      applicationKeyId: process.env.B2_APPLICATION_KEY_ID,
+      applicationKey: process.env.B2_APPLICATION_KEY,
+      bucketId: process.env.B2_BUCKET_ID,
+      bucketName: process.env.B2_BUCKET_NAME,
+      host: process.env.B2_HOST,
+      pathPrefix: process.env.B2_PATH_PREFIX 
     }
-  } else if (!!process.env.WEBDAV_SERVER_URL){
-    fileStorage = true
-    storage = {
-      'active': 'webdav',
-      // no need to set configs; they're set directly from
-      // the environment variables.
-    }
-  } else if (!!process.env.BUCKETEER_AWS_ACCESS_KEY_ID) {
-    fileStorage = true
-    storage = {
-      active: 's3',
-      's3': {
-        accessKeyId:     process.env.BUCKETEER_AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.BUCKETEER_AWS_SECRET_ACCESS_KEY,
-        bucket:          process.env.BUCKETEER_BUCKET_NAME,
-        region:          process.env.S3_BUCKET_REGION,
-        assetHost:       process.env.S3_ASSET_HOST_URL
-      }
-    }
-  } else if (!!process.env.CLOUDINARY_URL) {
-    fileStorage = true
-    storage = {
-      active: 'ghost-storage-cloudinary',
-      'ghost-storage-cloudinary': {
-        useDatedFolder: false,
-        upload: {
-          use_filename: true,
-          unique_filename: false,
-          overwrite: false,
-          folder: "ghost-blog-images",
-          tags: ["blog"]
-        },
-        fetch: {
-          quality: "auto",
-          secure: true,
-          cdn_subdomain: true
-        }
-      }
-    }
-  } else {
-    fileStorage = false
-    storage = {}
   }
+  
 
   config = {
     url: process.env.APP_PUBLIC_URL,
